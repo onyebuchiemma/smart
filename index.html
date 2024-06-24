@@ -3,10 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="style.css" rel="stylesheet">
+    <title>Courier Shipping Service</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    liufuvaugdagd
+    <header>
+        <div class="navbar">
+            <div class="logo">Courier Service</div>
+            <div class="hamburger-menu" id="hamburgerMenu">&#9776;</div>
+            <nav class="nav-links hidden" id="navLinks">
+                <ul>
+                    <li><a href="#shipmentDetailsSection">Shipment Details</a></li>
+                    <li><a href="#trackSection">Track Shipment</a></li>
+                    <li><a href="#storedShipmentsSection">Stored Shipments</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="shipmentDetailsSection">
+        <h2>Shipment Details</h2>
+        <form id="shipmentDetails">
+            <h3>Sender's Information</h3>
+            <label for="senderName">Name:</label>
+            <input type="text" id="senderName" required>
+            <label for="senderAddress">Address:</label>
+            <input type="text" id="senderAddress" required>
+            <label for="senderEmail">Email:</label>
+            <input type="email" id="senderEmail" required>
+            <label for="senderPhone">Phone Number:</label>
+            <input type="tel" id="senderPhone" required>
+
+            <h3>Receiver's Information</h3>
+            <label for="receiverName">Name:</label>
+            <input type="text" id="receiverName" required>
+            <label for="receiverAddress">Address:</label>
+            <input type="text" id="receiverAddress" required>
+            <label for="receiverEmail">Email:</label>
+            <input type="email" id="receiverEmail" required>
+            <label for="receiverPhone">Phone Number:</label>
+            <input type="tel" id="receiverPhone" required>
+
+            <h3>Shipment Information</h3>
+            <label for="shipmentType">Type of Shipment:</label>
+            <select id="shipmentType" required>
+                <option value="International Shipping">International Shipping</option>
+                <option value="Air Freight">Air Freight</option>
+                <option value="Truckload">Truckload</option>
+                <option value="Van Move">Van Move</option>
+            </select>
+            <label for="shipmentWeight">Weight:</label>
+            <input type="number" id="shipmentWeight" required>
+            <label for="courier">Courier:</label>
+            <input type="text" id="courier" required>
+            <label for="packages">Packages:</label>
+            <input type="number" id="packages" required>
+            <label for="mode">Mode:</label>
+            <input type="text" id="mode" required>
+            <label for="product">Product:</label>
+            <input type="text" id="product" required>
+            <label for="carrier">Carrier:</label>
+            <input type="text" id="carrier" required>
+            <label for="carrierRefNumber">Carrier Reference Number:</label>
+            <input type="text" id="carrierRefNumber" required>
+            <label for="comment">Comment:</label>
+            <textarea id="comment"></textarea>
+
+            <h3>Shipment Dates and Payment</h3>
+            <label for="deliveryDate">Delivery Date:</label>
+            <input type="date" id="deliveryDate" required>
+            <label for="departureDate">Departure Date:</label>
+            <input type="date" id="departureDate" required>
+            <label for="paymentOption">Payment Option:</label>
+            <select id="paymentOption" required>
+                <option value="Cheque">Cheque</option>
+                <option value="Cash">Cash</option>
+                <option value="Bacs">Bacs</option>
+                <option value="Western Union">Western Union</option>
+            </select>
+            <label for="totalFlight">Total Flight:</label>
+            <input type="number" id="totalFlight" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="receiptSection">
+        <h2>Receipt</h2>
+        <div id="receipt" class="hidden">
+            <div id="printableReceipt">
+                <h3>Shipment Receipt</h3>
+                <p><strong>Tracking Number:</strong> <span id="printedTrackingNumber"></span></p>
+                <h4>Sender's Information</h4>
+                <p><strong>Name:</strong> <span id="printedSenderName"></span></p>
+                <p><strong>Address:</strong> <span id="printedSenderAddress"></span></p>
+                <p><strong>Email:</strong> <span id="printedSenderEmail"></span></p>
+                <p><strong>Phone Number:</strong> <span id="printedSenderPhone"></span></p>
+                <h4>Receiver's Information</h4>
+                <p><strong>Name:</strong> <span id="printedReceiverName"></span></p>
+                <p><strong>Address:</strong> <span id="printedReceiverAddress"></span></p>
+                <p><strong>Email:</strong> <span id="printedReceiverEmail"></span></p>
+                <p><strong>Phone Number:</strong> <span id="printedReceiverPhone"></span></p>
+                <h4>Shipment Information</h4>
+                <p><strong>Type of Shipment:</strong> <span id="printedShipmentType"></span></p>
+                <p><strong>Weight:</strong> <span id="printedShipmentWeight"></span></p>
+                <p><strong>Courier:</strong> <span id="printedCourier"></span></p>
+                <p><strong>Packages:</strong> <span id="printedPackages"></span></p>
+                <p><strong>Mode:</strong> <span id="printedMode"></span></p>
+                <p><strong>Product:</strong> <span id="printedProduct"></span></p>
+                <p><strong>Carrier:</strong> <span id="printedCarrier"></span></p>
+                <p><strong>Carrier Reference Number:</strong> <span id="printedCarrierRefNumber"></span></p>
+                <p><strong>Comment:</strong> <span id="printedComment"></span></p>
+                <h4>Dates and Payment</h4>
+                <p><strong>Delivery Date:</strong> <span id="printedDeliveryDate"></span></p>
+                <p><strong>Departure Date:</strong> <span id="printedDepartureDate"></span></p>
+                <p><strong>Payment Option:</strong> <span id="printedPaymentOption"></span></p>
+                <p><strong>Total Flight:</strong> <span id="printedTotalFlight"></span></p>
+            </div>
+            <button id="printReceiptBtn">Print Receipt</button>
+        </div>
+    </section>
+
+    <section id="trackSection">
+        <h2>Track Your Shipment</h2>
+        <form id="trackForm">
+            <label for="trackingNumber">Enter Tracking Number:</label>
+            <input type="text" id="trackingNumber" required>
+            <button type="submit">Track</button>
+        </form>
+        <div id="trackingResult" class="hidden"></div>
+    </section>
+
+    <section id="storedShipmentsSection">
+        <h2>Stored Shipments</h2>
+        <div id="storedShipments"></div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
